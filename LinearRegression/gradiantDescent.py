@@ -3,7 +3,7 @@ import csv
 def estimate(t0, t1, a):
     return (t0 + (t1 * a))
 
-def readdata():
+def getdataset():
     tabdata = []
     with open('data.csv', newline='') as csvfile:
         spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
@@ -22,25 +22,25 @@ def readdata():
 
 if __name__ == '__main__':
 
-    tabdata = readdata()
-    m = len(tabdata)
-    learningrate = 0.3
+    dataset = getdataset()
+    m = len(dataset)
+    learningrate = 1e-6
     teta0 = 0.0
     teta1 = 0.0
-    for i in range(0, 300):
-        sum1 = 0.0
-        sum2 = 0.0
-        print (teta0)
-        for data in tabdata:
-            cost = (teta0 + teta1 * data[0]) - data[1]
-            sum1 = sum1 + cost
-            sum2 = sum2 + cost * data[0]
-        minimalize = learningrate * 1.0 / float(m)
-        teta0 -= minimalize * sum1
-        teta1 -= minimalize * sum2
-    nb = input("Entrez un nombre a estimer: ")
+    minimalize = learningrate * (1.0 / m)
+    for i in range(0, 30):
+        sumT0 = 0.0
+        sumT1 = 0.0
+        print("teta0: ", teta0, "       teta1: ", teta1)
+        for data in dataset:
+            cost = estimate(teta0, teta1, data[0]) - data[1]
+            sumT0 += cost
+            sumT1 += cost * data[0]
+        teta0 = minimalize * (sumT0 / m)
+        teta1 = minimalize * (sumT1 / m)
+    nb = input("Enter a mileage: ")
     if (not nb.isnumeric()):
-        print('Mauvais format!')
+        print('Wrong format!')
         exit(0)
     print(teta0)
     print(teta1)
