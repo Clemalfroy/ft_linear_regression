@@ -42,6 +42,4 @@ if __name__ == '__main__':
     if (not nb.isnumeric()):
         print('Wrong format!')
         exit(0)
-    print(teta0)
-    print(teta1)
     print(estimate(teta0, teta1, int(nb)))
