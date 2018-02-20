@@ -24,9 +24,9 @@ if __name__ == '__main__':
 
     dataset = getdataset()
     m = len(dataset)
-    learningrate = 1e-6
-    theta0 = 0.0
-    theta1 = 0.0
+    learningrate = 0.1
+    theta0 = 0.5
+    theta1 = 0.5
     minimalize = learningrate * (1.0 / m)
     for i in range(0, 30):
         sumT0 = 0.0
@@ -41,4 +41,4 @@ if __name__ == '__main__':
     if (not nb.isnumeric()):
         print('Wrong format!')
         exit(0)
-    print(estimate(theta0, theta1, int(nb)))
+    print("With:", nb, "mileaage, you can expect a price of: ", estimate(theta0, theta1, int(nb)))
