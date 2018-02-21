@@ -28,6 +28,18 @@ def getdataset():
                 tabdata.append(new)
     return (tabdata)
 
+def display():
+    nb = input("Enter a mileage: ")
+    if (not nb.isnumeric()):
+        print('Wrong format!')
+        exit(0)
+    for data in dataset:
+        plt.plot(data[0], data[1], "bo")
+    plt.plot([250000, 100], [estimate(theta[0], theta[1], 250000), estimate(theta[0], theta[1], 100)], 'r-')
+    print("With:", nb, "km mileage, you can expect a price of: ", estimate(theta[0], theta[1], int(nb)), "dollars.")
+    plt.plot(int(nb), estimate(theta[0], theta[1], int(nb)), "go")
+    plt.show()
+
 if __name__ == '__main__':
 
     dataset = getdataset()
@@ -52,13 +64,4 @@ if __name__ == '__main__':
         theta[1] = theta[1] - learningrate * (1 / m) * (sumT1 / m)
         costfunction = 1 / m  * pow(sumT0, 2)
     theta[1] = (theta[1] + theta[0] * (210000 / (maxX[0] - minX[0])) - theta[0]) / 210000
-    nb = input("Enter a mileage: ")
-    if (not nb.isnumeric()):
-        print('Wrong format!')
-        exit(0)
-    for data in dataset:
-        plt.plot(data[0], data[1], "bo")
-    plt.plot([250000, 100], [estimate(theta[0], theta[1], 250000), estimate(theta[0], theta[1], 100)], 'r-')
-    print("With:", nb, "km mileage, you can expect a price of: ", estimate(theta[0], theta[1], int(nb)), "dollars.")
-    plt.plot(int(nb), estimate(theta[0], theta[1], int(nb)), "go")
-    plt.show()
+    display()
