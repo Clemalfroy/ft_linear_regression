@@ -7,7 +7,7 @@ def estimate(t0, t1, a):
 def scale(maxX, minX, dataset):
     scaleddata = []
     for data in dataset:
-        new = [(data[0] - minX[0]) / (maxX[0] - minX[0]), data[1]]
+        new = [(data[0] / (maxX[0] - minX[0])), data[1]]
         scaleddata.append(new)
     return (scaleddata)
 
@@ -34,21 +34,24 @@ if __name__ == '__main__':
     maxX = max(dataset)
     minX = min(dataset)
     m = len(dataset)
-    learningrate = 1e-7
-    theta = [0.5, 0.5]
+    learningrate = 0.1
+    theta = [0, 0]
     minimalize = learningrate * (1.0 / m)
     scaleddata = scale(maxX, minX, dataset)
-    for i in range(0, 10000):
+    costfunction = 0
+    previouscost = -999999
+    while (abs(costfunction - previouscost) > 0.0003):
+        previouscost = costfunction
         sumT0 = 0.0
         sumT1 = 0.0
         for data in scaleddata:
             cost = estimate(theta[0], theta[1], data[0]) - data[1]
             sumT0 += cost
             sumT1 += cost * data[0]
-        tmptheta0 = minimalize * (sumT0 / m)
-        tmptheta1 = minimalize * (sumT1 / m)
-        theta[0] -= tmptheta0
-        theta[1] -= tmptheta1
+        theta[0] = theta[0] - learningrate * (1 / m) * (sumT0 / m)
+        theta[1] = theta[1] - learningrate * (1 / m) * (sumT1 / m)
+        costfunction = 1 / m  * pow(sumT0, 2)
+    theta[1] = (theta[1] + theta[0] * (210000 / (maxX[0] - minX[0])) - theta[0]) / 210000
     nb = input("Enter a mileage: ")
     if (not nb.isnumeric()):
         print('Wrong format!')
