@@ -5,6 +5,11 @@
 clear ; close all; clc
 
 fprintf('Plotting Data ...\n')
+
+%data = csvread ('data.csv');
+%D = data(2:size(D,1), 1:2);
+%X = data(:, 1); y = data(:, 2);
+
 data = load('ex1data1.txt');
 X = data(:, 1); y = data(:, 2);
 m = length(y); % number of training examples
