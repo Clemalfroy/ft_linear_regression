@@ -21,7 +21,10 @@ for iter = 1:num_iters
 
 
 
-
+predict = X * theta;
+diff = predict - y;
+delta = 1 / m * X' * diff
+theta = theta - alpha * delta
 
 
 

@@ -17,7 +17,6 @@ for iter = 1:num_iters
     %       of the cost function (computeCost) and gradient here.
     %
 
-J1 = computeCost(X, y, theta)
 predict = X * theta;
 diff = predict - y;
 delta = 1 / m * X' * diff
