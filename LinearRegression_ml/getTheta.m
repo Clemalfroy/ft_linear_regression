@@ -10,9 +10,6 @@ data = csvread('data.csv');
 data = data(2:size(data,1), 1:2);
 X = data(:, 1); y = data(:, 2);
 
-%data = load('ex1data1.txt');
-%X = data(:, 1); y = data(:, 2);
-
 m = length(y); % number of training examples
 
 % Plot Data

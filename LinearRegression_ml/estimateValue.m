@@ -1,0 +1,1 @@
+clear ; close all; clctryload('theta.mat');catchtheta = [0;0];endtryload('mu.mat');catchmu = [1];endtryload('sigma.mat');catchsigma = [1];endy = input ("Pick a number to estimate:");price = estimatep(y, mu, sigma, theta);fprintf('For mileage = %f km, we predict a price of %f dollars\n', y, ...    price);
