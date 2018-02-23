@@ -30,7 +30,12 @@ fprintf('Theta found by gradient descent:\n%f\n', theta);
  
 % Plot the linear fit
 hold on; % keep previous plot visible
-plot(X(:,2), X * theta, '-')
+plot(0, estimatep([0], mu, sigma, theta), 'bx', 'MarkerSize', 10, 'LineWidth', 2);
+plot(50000, estimatep([50000], mu, sigma, theta), 'bx', 'MarkerSize', 10, 'LineWidth', 2);
+plot(100000, estimatep([100000], mu, sigma, theta), 'bx', 'MarkerSize', 10, 'LineWidth', 2);
+plot(150000, estimatep([150000], mu, sigma, theta), 'bx', 'MarkerSize', 10, 'LineWidth', 2);
+plot(200000, estimatep([200000], mu, sigma, theta), 'bx', 'MarkerSize', 10, 'LineWidth', 2);
+plot(250000, estimatep([250000], mu, sigma, theta), 'bx', 'MarkerSize', 10, 'LineWidth', 2);
 legend('Training data', 'Linear regression')
 hold off % don't overlay any more plots on this figure
 
