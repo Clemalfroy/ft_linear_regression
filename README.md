@@ -1,10 +1,8 @@
-# ft_linear_regression
+
+# SUBJECT of : ft_linear_regression
 
 ## An introduction to machine learning
 
-```
-Baptiste Jacobbjacob@student.42.fr
-```
 _Résumé: In this project, you will implement your first machine learning algorithm._
 
 
@@ -23,9 +21,6 @@ _Résumé: In this project, you will implement your first machine learning algor
 
 # Préambule
 
-```
-What i think is the best definition for machine learning :
-```
 “A computer program is said to learn from experience E with respect to some
 class of tasks T and performance measure P, if its performance at tasks in
 T, as measured by P, improves with experience E.”
