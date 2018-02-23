@@ -1,0 +1,1 @@
+function p = estimatep(x, mu, sigma, theta);	p = [1 ((x - mu) ./ sigma)] * theta;end
