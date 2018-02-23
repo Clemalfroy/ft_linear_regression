@@ -50,7 +50,7 @@ if __name__ == '__main__':
         theta[0] = theta[0] - learningrate * (1 / m) * (sumT0 / m)
         theta[1] = theta[1] - learningrate * (1 / m) * (sumT1 / m)
         costfunction = 1 / m  * pow(sumT0, 2)
-    theta[1] = (theta[1] + theta[0] * (210000 / (maxX[0] - minX[0])) - theta[0]) / 210000
+    theta[1] = (theta[1] / (maxX[0] - minX[0]))
     print("theta0: ", theta[0], " |||||| theta1: ", theta[1])
     f = open("theta.txt", "w")
     lines_of_text = [str(theta[0]), "\n", str(theta[1]),  "\n"]

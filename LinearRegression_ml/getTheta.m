@@ -6,7 +6,7 @@ clear ; close all; clc
 
 fprintf('Plotting Data ...\n')
 
-data = csvread('data.csv');
+data = csvread("data.csv");
 data = data(2:size(data,1), 1:2);
 X = data(:, 1); y = data(:, 2);
 
