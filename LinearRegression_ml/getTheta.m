@@ -6,46 +6,48 @@ clear ; close all; clc
 
 fprintf('Plotting Data ...\n')
 
-%data = csvread ('data.csv');
-%D = data(2:size(D,1), 1:2);
+data = csvread('data.csv');
+data = data(2:size(data,1), 1:2);
+X = data(:, 1); y = data(:, 2);
+
+%data = load('ex1data1.txt');
 %X = data(:, 1); y = data(:, 2);
 
-data = load('ex1data1.txt');
-X = data(:, 1); y = data(:, 2);
 m = length(y); % number of training examples
 
 % Plot Data
-% Note: You have to complete the code in plotData.m
 plotData(X, y);
-X = [ones(m, 1), data(:,1)]; % Add a column of ones to x
+[X mu sigma] = featureNormalize(X);
+X = [ones(m, 1), X]; % Add a column of ones to x
 theta = zeros(2, 1); % initialize fitting parameters
 
 % Some gradient descent settings
-iterations = 1500;
-alpha = 0.01;
+iterations = 150;
+alpha = 0.1;
 
-% compute initial cost
-J = computeCost(X, y, theta);
 % run gradient descent
 theta = gradientDescent(X, y, theta, alpha, iterations);
 
 % print theta to screen
-fprintf('Theta found by gradient descent:\n');
-fprintf('%f\n', theta);
+fprintf('Theta found by gradient descent:\n%f\n', theta);
 
+function p = estimate(x, mu, sigma, theta);
+	p = [1 ((x - mu) ./ sigma)] * theta;
+end
+    
 % Plot the linear fit
 hold on; % keep previous plot visible
-plot(X(:,2), X*theta, '-')
+plot(X(:,2), X * theta, '-')
 legend('Training data', 'Linear regression')
 hold off % don't overlay any more plots on this figure
 
 % Predict values for population sizes of 35,000 and 70,000
-predict1 = [1, 3.5] *theta;
-fprintf('For population = 35,000, we predict a profit of %f\n',...
-    predict1*10000);
-predict2 = [1, 7] * theta;
-fprintf('For population = 70,000, we predict a profit of %f\n',...
-    predict2*10000);
+predict1 = estimate([250000], mu, sigma, theta);
+fprintf('For mileage = 250,000, we predict a price of %f\n',...
+    predict1);
+predict2 = estimate([75000], mu, sigma, theta);
+fprintf('For mileage = 75,000, we predict a price of %f\n',...
+    predict2);
 
 % Grid over which we will calculate J
 theta0_vals = linspace(-10, 10, 100);
@@ -61,7 +63,6 @@ for i = 1:length(theta0_vals);
 	  J_vals(i,j) = computeCost(X, y, t);
     end
 end
-
 
 % Because of the way meshgrids work in the surf command, we need to
 % transpose J_vals before calling surf, or else the axes will be flipped

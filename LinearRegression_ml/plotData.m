@@ -5,7 +5,9 @@ function plotData(x, y)
 
 figure; % open a new figure window
 plot(x, y, 'rx', 'MarkerSize', 10);
-xlabel('population');
-ylabel('revenue');
+%xlabel('population');
+xlabel('mileage');
+%ylabel('revenue');
+ylabel('price');
 
 end
