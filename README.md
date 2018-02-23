@@ -85,8 +85,9 @@ To do so, you need to create two programs :
     hypothesis to predict the price :
 
 ```
-estimatePrice ( mileage ) = θ 0 + ( θ 1 ∗ mileage )
+estimatePrice ( mileage ) = θ 0 + ( θ 1 * mileage )
 ```
+
 ```
 Before the run of the training program, theta0 and theta1 will be set to 0.
 ```
@@ -94,53 +95,7 @@ Before the run of the training program, theta0 and theta1 will be set to 0.
     file and perform a linear regression on the data.
     Once the linear regression has completed, you will save the variables theta0 and
     theta1 for use in the first program.
-    You will be using the following formulas :
-
-```
-tmpθ 0 = learningRate ∗
-```
-### 1
-
-```
-m
-```
-```
-m ∑− 1
-```
-```
-i =
-```
-```
-( estimatePrice ( mileage [ i ])− price [ i ])
-```
-```
-tmpθ 1 = learningRate ∗
-```
-### 1
-
-```
-m
-```
-```
-m ∑− 1
-```
-```
-i =
-```
-```
-( estimatePrice ( mileage [ i ])− price [ i ])∗ milleage [ i ]
-```
-```
-I let you guess what m is :)
-```
-```
-Note that the estimatePrice is the same as in our first program, but here it uses
-your temporary, lastly computed theta0 and theta1.
-```
-```
-Also, don’t forget to simultaneously update theta0 and theta1.
-```
-
+    
 # Chapitre VI
 
 # Bonuses
