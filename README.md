@@ -8,13 +8,13 @@ _Résumé: In this project, you will implement your first machine learning algor
 
 ## Table des matières
 
-- I Préambule
-- II Introduction
-- III Objective
-- IV General instructions
-- V What you have to do
-- VI Bonuses
-- VII Peer-evaluation
+- #### I Préambule
+- #### II Introduction
+- #### III Objective
+- #### IV General instructions
+- #### V What you have to do
+- #### VI Bonuses
+- #### VII Peer-evaluation
 
 
 # Chapitre I
