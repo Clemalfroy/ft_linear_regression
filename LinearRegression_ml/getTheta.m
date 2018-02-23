@@ -19,7 +19,7 @@ X = [ones(m, 1), X]; % Add a column of ones to x
 theta = zeros(2, 1); % initialize fitting parameters
 
 % Some gradient descent settings
-iterations = 1500;
+iterations = 150;
 alpha = 0.1;
 
 % run gradient descent
