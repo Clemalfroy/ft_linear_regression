@@ -1,5 +1,5 @@
 
-# SUBJECT of : ft_linear_regression
+# Subject of : ft_linear_regression
 
 ## An introduction to machine learning
 
