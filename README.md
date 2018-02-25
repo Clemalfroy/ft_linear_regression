@@ -3,7 +3,7 @@
 
 ## An introduction to machine learning
 
-_Résumé: In this project, you will implement your first machine learning algorithm._
+_Résumé: In this project, you will implement your first machine learning algorithm..._
 
 
 ## Table des matières
